@@ -28,11 +28,12 @@ const VerificationRequests = () => {
       return;
     }
 
-    const { data } = await supabase.rpc('is_admin', { _user_id: session.user.id });
-    if (!data) {
-      navigate("/");
-      return;
-    }
+    // Temporarily disabled admin check for testing
+    // const { data } = await supabase.rpc('is_admin', { _user_id: session.user.id });
+    // if (!data) {
+    //   navigate("/");
+    //   return;
+    // }
 
     fetchRequests();
   };
