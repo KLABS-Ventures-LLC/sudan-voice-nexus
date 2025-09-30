@@ -75,7 +75,7 @@ const AdminDashboard = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Total Users</CardTitle>
+              <CardTitle className="text-sm font-medium">{t('admin.totalUsers')}</CardTitle>
               <Users className="h-4 w-4 text-muted-foreground" />
             </CardHeader>
             <CardContent>
@@ -85,7 +85,7 @@ const AdminDashboard = () => {
 
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Verified Users</CardTitle>
+              <CardTitle className="text-sm font-medium">{t('admin.verifiedUsers')}</CardTitle>
               <CheckCircle className="h-4 w-4 text-success" />
             </CardHeader>
             <CardContent>
@@ -95,7 +95,7 @@ const AdminDashboard = () => {
 
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Pending Verifications</CardTitle>
+              <CardTitle className="text-sm font-medium">{t('admin.pendingVerifications')}</CardTitle>
               <Users className="h-4 w-4 text-secondary" />
             </CardHeader>
             <CardContent>
@@ -105,7 +105,7 @@ const AdminDashboard = () => {
 
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Pending Polls</CardTitle>
+              <CardTitle className="text-sm font-medium">{t('admin.pendingPolls')}</CardTitle>
               <FileText className="h-4 w-4 text-secondary" />
             </CardHeader>
             <CardContent>
@@ -124,10 +124,10 @@ const AdminDashboard = () => {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground mb-4">
-                Review and approve user verification requests
+                {t('admin.reviewVerifications')}
               </p>
               <Button asChild className="w-full gradient-accent">
-                <Link to="/admin/verifications">View Requests</Link>
+                <Link to="/admin/verifications">{t('admin.viewRequests')}</Link>
               </Button>
             </CardContent>
           </Card>
@@ -141,10 +141,10 @@ const AdminDashboard = () => {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground mb-4">
-                Review and approve new polls before they go live
+                {t('admin.reviewPolls')}
               </p>
               <Button asChild className="w-full gradient-accent">
-                <Link to="/admin/polls">View Polls</Link>
+                <Link to="/admin/polls">{t('admin.viewPolls')}</Link>
               </Button>
             </CardContent>
           </Card>
@@ -158,10 +158,10 @@ const AdminDashboard = () => {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground mb-4">
-                View detailed analytics and user insights
+                {t('admin.viewAnalytics')}
               </p>
               <Button asChild className="w-full gradient-accent">
-                <Link to="/admin/analytics">View Analytics</Link>
+                <Link to="/admin/analytics">{t('admin.viewAnalytics')}</Link>
               </Button>
             </CardContent>
           </Card>

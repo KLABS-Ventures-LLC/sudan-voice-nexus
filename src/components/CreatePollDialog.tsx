@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,6 +11,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
 export const CreatePollDialog = () => {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -36,19 +38,19 @@ export const CreatePollDialog = () => {
     e.preventDefault();
 
     if (!title.trim()) {
-      toast.error("Please enter a poll title");
+      toast.error(t('poll.enterTitle'));
       return;
     }
 
     const validOptions = options.filter(opt => opt.trim() !== "");
     if (validOptions.length < 2) {
-      toast.error("Please provide at least 2 options");
+      toast.error(t('poll.min2Options'));
       return;
     }
 
     const { data: { session } } = await supabase.auth.getSession();
     if (!session) {
-      toast.error("Please log in to create a poll");
+      toast.error(t('auth.loginToCreate'));
       return;
     }
 
@@ -65,7 +67,7 @@ export const CreatePollDialog = () => {
       .single();
 
     if (pollError || !poll) {
-      toast.error("Failed to create poll");
+      toast.error(t('poll.createdFailed'));
       return;
     }
 
@@ -80,11 +82,11 @@ export const CreatePollDialog = () => {
       );
 
     if (optionsError) {
-      toast.error("Failed to create poll options");
+      toast.error(t('poll.optionsFailed'));
       return;
     }
 
-    toast.success("Poll created! Pending admin approval.");
+    toast.success(t('poll.created'));
     setOpen(false);
     setTitle("");
     setDescription("");
@@ -97,62 +99,62 @@ export const CreatePollDialog = () => {
       <DialogTrigger asChild>
         <Button className="gradient-hero">
           <Plus className="h-4 w-4 mr-2" />
-          Create Poll
+          {t('poll.createNew')}
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>Create New Poll</DialogTitle>
+          <DialogTitle>{t('poll.createTitle')}</DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="title">Poll Title *</Label>
+            <Label htmlFor="title">{t('poll.title')} *</Label>
             <Input
               id="title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              placeholder="What's your question?"
+              placeholder={t('poll.question')}
               required
             />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="description">Description</Label>
+            <Label htmlFor="description">{t('poll.description')}</Label>
             <Textarea
               id="description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              placeholder="Optional description..."
+              placeholder={t('poll.descriptionPlaceholder')}
               rows={3}
             />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="category">Category</Label>
+            <Label htmlFor="category">{t('poll.category')}</Label>
             <Select value={category} onValueChange={setCategory}>
               <SelectTrigger>
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="governance">Governance</SelectItem>
-                <SelectItem value="economy">Economy</SelectItem>
-                <SelectItem value="education">Education</SelectItem>
-                <SelectItem value="health">Health</SelectItem>
-                <SelectItem value="infrastructure">Infrastructure</SelectItem>
-                <SelectItem value="security">Security</SelectItem>
-                <SelectItem value="other">Other</SelectItem>
+                <SelectItem value="governance">{t('poll.categories.governance')}</SelectItem>
+                <SelectItem value="economy">{t('poll.categories.economy')}</SelectItem>
+                <SelectItem value="education">{t('poll.categories.education')}</SelectItem>
+                <SelectItem value="health">{t('poll.categories.health')}</SelectItem>
+                <SelectItem value="infrastructure">{t('poll.categories.infrastructure')}</SelectItem>
+                <SelectItem value="security">{t('poll.categories.security')}</SelectItem>
+                <SelectItem value="other">{t('poll.categories.other')}</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
           <div className="space-y-2">
-            <Label>Options *</Label>
+            <Label>{t('poll.options')} *</Label>
             {options.map((option, index) => (
               <div key={index} className="flex gap-2">
                 <Input
                   value={option}
                   onChange={(e) => updateOption(index, e.target.value)}
-                  placeholder={`Option ${index + 1}`}
+                  placeholder={`${t('poll.option')} ${index + 1}`}
                 />
                 {options.length > 2 && (
                   <Button
@@ -168,16 +170,16 @@ export const CreatePollDialog = () => {
             ))}
             <Button type="button" variant="outline" onClick={addOption} className="w-full">
               <Plus className="h-4 w-4 mr-2" />
-              Add Option
+              {t('poll.addOption')}
             </Button>
           </div>
 
           <div className="flex justify-end gap-2">
             <Button type="button" variant="outline" onClick={() => setOpen(false)}>
-              Cancel
+              {t('poll.cancel')}
             </Button>
             <Button type="submit" className="gradient-hero">
-              Create Poll
+              {t('poll.createNew')}
             </Button>
           </div>
         </form>

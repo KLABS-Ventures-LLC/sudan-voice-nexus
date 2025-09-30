@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent } from "@/components/ui/card";
 import { Users, ShieldCheck } from "lucide-react";
 
 export const StatsCounter = () => {
+  const { t } = useTranslation();
   const [totalSupporters, setTotalSupporters] = useState(0);
   const [verifiedSupporters, setVerifiedSupporters] = useState(0);
 
@@ -54,7 +56,7 @@ export const StatsCounter = () => {
               <Users className="h-8 w-8 text-primary" />
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">Total Supporters</p>
+              <p className="text-sm text-muted-foreground">{t('stats.supporters')}</p>
               <p className="text-4xl font-bold text-primary animate-fade-in">
                 {totalSupporters.toLocaleString()}
               </p>
@@ -70,7 +72,7 @@ export const StatsCounter = () => {
               <ShieldCheck className="h-8 w-8 text-success" />
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">Verified Supporters</p>
+              <p className="text-sm text-muted-foreground">{t('stats.verifiedSupporters')}</p>
               <p className="text-4xl font-bold text-success animate-fade-in">
                 {verifiedSupporters.toLocaleString()}
               </p>

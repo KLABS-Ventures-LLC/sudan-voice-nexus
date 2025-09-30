@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -25,6 +26,7 @@ interface PollCardProps {
 }
 
 export const PollCard = ({ poll }: PollCardProps) => {
+  const { t } = useTranslation();
   const [options, setOptions] = useState<PollOption[]>([]);
   const [userVote, setUserVote] = useState<string | null>(null);
   const [userId, setUserId] = useState<string | null>(null);
@@ -69,7 +71,7 @@ export const PollCard = ({ poll }: PollCardProps) => {
 
   const handleVote = async (optionId: string) => {
     if (!userId) {
-      toast.error("Please log in to vote");
+      toast.error(t('auth.loginToVote'));
       return;
     }
 
@@ -83,7 +85,7 @@ export const PollCard = ({ poll }: PollCardProps) => {
 
       if (!error) {
         setUserVote(optionId);
-        toast.success("Vote updated!");
+        toast.success(t('auth.voteUpdated'));
         fetchOptions();
       }
     } else {
@@ -98,10 +100,10 @@ export const PollCard = ({ poll }: PollCardProps) => {
 
       if (!error) {
         setUserVote(optionId);
-        toast.success("Vote recorded!");
+        toast.success(t('auth.voteRecorded'));
         fetchOptions();
       } else {
-        toast.error("Failed to vote");
+        toast.error(t('auth.voteFailed'));
       }
     }
   };
@@ -119,7 +121,7 @@ export const PollCard = ({ poll }: PollCardProps) => {
             )}
           </div>
           <Badge variant="secondary" className="capitalize">
-            {poll.category}
+            {t(`poll.categories.${poll.category}`)}
           </Badge>
         </div>
       </CardHeader>
@@ -151,7 +153,7 @@ export const PollCard = ({ poll }: PollCardProps) => {
           );
         })}
         <p className="text-sm text-muted-foreground text-center pt-2">
-          Total votes: {totalVotes}
+          {t('polls.totalVotes')}: {totalVotes}
         </p>
       </CardContent>
     </Card>

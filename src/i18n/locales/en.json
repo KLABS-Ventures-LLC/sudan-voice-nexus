@@ -15,10 +15,35 @@
     "viewPolls": "View All Polls"
   },
   "stats": {
-    "supporters": "Supporters",
+    "supporters": "Total Supporters",
     "verifiedSupporters": "Verified Supporters",
     "activePolls": "Active Polls",
     "totalVotes": "Total Votes"
+  },
+  "polls": {
+    "recent": "Recent Polls",
+    "recentDescription": "Participate in ongoing discussions",
+    "viewAll": "View All",
+    "noPollsYet": "No polls available yet. Be the first to create one!",
+    "totalVotes": "Total votes"
+  },
+  "gofundme": {
+    "title": "Support Our Movement",
+    "description": "Help us build a stronger democratic future for Sudan. Every contribution matters.",
+    "goal": "Goal",
+    "funded": "funded",
+    "supporters": "supporters",
+    "contribute": "Contribute Now"
+  },
+  "subscribe": {
+    "title": "Stay Informed",
+    "description": "Subscribe to receive updates about polls, announcements, and democratic initiatives",
+    "placeholder": "your@email.com",
+    "button": "Subscribe",
+    "success": "Successfully subscribed to updates!",
+    "invalid": "Please enter a valid email",
+    "exists": "This email is already subscribed",
+    "error": "Failed to subscribe"
   },
   "auth": {
     "title": "Join Sudan Voice Nexus",
@@ -37,7 +62,12 @@
     "signingIn": "Signing In...",
     "codeSent": "Verification code sent to your phone",
     "verificationSuccess": "Phone verified successfully!",
-    "enterCode": "Enter the 6-digit code sent to your phone"
+    "enterCode": "Enter the 6-digit code sent to your phone",
+    "loginToVote": "Please log in to vote",
+    "voteUpdated": "Vote updated!",
+    "voteRecorded": "Vote recorded!",
+    "voteFailed": "Failed to vote",
+    "loginToCreate": "Please log in to create a poll"
   },
   "register": {
     "title": "Complete Your Profile",
@@ -54,15 +84,25 @@
   },
   "poll": {
     "createNew": "Create Poll",
+    "createTitle": "Create New Poll",
     "title": "Poll Title",
     "description": "Description",
+    "descriptionPlaceholder": "Optional description...",
+    "question": "What's your question?",
     "category": "Category",
     "options": "Options",
+    "option": "Option",
     "addOption": "Add Option",
     "vote": "Vote",
     "voted": "Voted",
     "votes": "votes",
     "pending": "Pending Approval",
+    "cancel": "Cancel",
+    "enterTitle": "Please enter a poll title",
+    "min2Options": "Please provide at least 2 options",
+    "created": "Poll created! Pending admin approval.",
+    "createdFailed": "Failed to create poll",
+    "optionsFailed": "Failed to create poll options",
     "categories": {
       "governance": "Governance",
       "economy": "Economy",
@@ -70,7 +110,8 @@
       "health": "Health",
       "infrastructure": "Infrastructure",
       "security": "Security",
-      "other": "Other"
+      "other": "Other",
+      "all": "All Categories"
     }
   },
   "profile": {
@@ -81,7 +122,11 @@
     "verified": "Verified",
     "rejected": "Rejected",
     "upgrade": "Upgrade to Verified Supporter",
-    "uploadPassport": "Upload Passport/ID"
+    "uploadPassport": "Upload Passport/ID",
+    "upgradeDescription": "Upload your passport or ID to become a verified supporter",
+    "submitting": "Submitting...",
+    "submitVerification": "Submit for Verification",
+    "verificationNotes": "Verification Notes"
   },
   "admin": {
     "dashboard": "Admin Dashboard",
@@ -90,10 +135,54 @@
     "analytics": "Analytics",
     "approve": "Approve",
     "reject": "Reject",
-    "viewDocument": "View Document"
+    "viewDocument": "View Document",
+    "totalUsers": "Total Users",
+    "verifiedUsers": "Verified Users",
+    "pendingVerifications": "Pending Verifications",
+    "pendingPolls": "Pending Polls",
+    "reviewVerifications": "Review and approve user verification requests",
+    "reviewPolls": "Review and approve new polls before they go live",
+    "viewAnalytics": "View detailed analytics and user insights",
+    "viewRequests": "View Requests",
+    "viewPolls": "View Polls",
+    "noPendingVerifications": "No pending verification requests",
+    "noPendingPolls": "No pending poll approvals",
+    "approveSuccess": "User verified successfully!",
+    "approveFailed": "Failed to approve verification",
+    "rejectSuccess": "Verification rejected",
+    "rejectFailed": "Failed to reject verification",
+    "pollApproveSuccess": "Poll approved successfully!",
+    "pollApproveFailed": "Failed to approve poll",
+    "pollRejectSuccess": "Poll rejected",
+    "pollRejectFailed": "Failed to reject poll",
+    "notes": "Notes (Optional)",
+    "notesPlaceholder": "Add any notes about this verification...",
+    "createdBy": "Created by",
+    "locationAnalytics": "Users by Location",
+    "occupationAnalytics": "Users by Occupation",
+    "noLocationData": "No location data available",
+    "noOccupationData": "No occupation data available",
+    "globePlaceholder": "Interactive globe visualization will be implemented here",
+    "globeNote": "(Requires additional library like react-globe.gl)"
   },
   "footer": {
-    "description": "Empowering Sudanese voices through democratic digital participation",
+    "description": "A digital parliament platform ensuring authenticated participation in democratic processes.",
+    "navigation": "Navigation",
+    "resources": "Resources",
+    "aboutUs": "About Us",
+    "howItWorks": "How It Works",
+    "contact": "Contact",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
     "rights": "All rights reserved"
+  },
+  "common": {
+    "loading": "Loading...",
+    "phone": "Phone",
+    "location": "Location",
+    "occupation": "Occupation",
+    "headshot": "Headshot",
+    "passport": "Passport/ID Document"
   }
 }

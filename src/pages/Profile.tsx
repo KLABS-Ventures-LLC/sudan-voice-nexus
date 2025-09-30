@@ -106,7 +106,7 @@ const Profile = () => {
       <div className="min-h-screen flex flex-col">
         <Header />
         <div className="flex-1 flex items-center justify-center">
-          <p className="text-muted-foreground">Loading...</p>
+          <p className="text-muted-foreground">{t('common.loading')}</p>
         </div>
       </div>
     );
@@ -166,7 +166,7 @@ const Profile = () => {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <p className="text-sm text-muted-foreground">
-                    Upload your passport or ID to become a verified supporter
+                    {t('profile.upgradeDescription')}
                   </p>
                   <div className="space-y-2">
                     <Label htmlFor="passport">{t('profile.uploadPassport')}</Label>
@@ -183,7 +183,7 @@ const Profile = () => {
                     className="w-full gradient-accent"
                   >
                     <Upload className="mr-2 h-4 w-4" />
-                    {loading ? "Submitting..." : "Submit for Verification"}
+                    {loading ? t('profile.submitting') : t('profile.submitVerification')}
                   </Button>
                 </CardContent>
               </Card>
@@ -191,7 +191,7 @@ const Profile = () => {
 
             {profile.verification_notes && (
               <div className="space-y-2">
-                <Label>Verification Notes</Label>
+                <Label>{t('profile.verificationNotes')}</Label>
                 <p className="text-sm text-muted-foreground">{profile.verification_notes}</p>
               </div>
             )}

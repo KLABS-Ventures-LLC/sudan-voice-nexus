@@ -62,9 +62,9 @@ const VerificationRequests = () => {
       .eq('id', profileId);
 
     if (error) {
-      toast.error("Failed to approve verification");
+      toast.error(t('admin.approveFailed'));
     } else {
-      toast.success("User verified successfully!");
+      toast.success(t('admin.approveSuccess'));
       fetchRequests();
     }
   };
@@ -79,9 +79,9 @@ const VerificationRequests = () => {
       .eq('id', profileId);
 
     if (error) {
-      toast.error("Failed to reject verification");
+      toast.error(t('admin.rejectFailed'));
     } else {
-      toast.success("Verification rejected");
+      toast.success(t('admin.rejectSuccess'));
       fetchRequests();
     }
   };
@@ -96,7 +96,7 @@ const VerificationRequests = () => {
         {requests.length === 0 ? (
           <Card>
             <CardContent className="py-12 text-center">
-              <p className="text-muted-foreground">No pending verification requests</p>
+              <p className="text-muted-foreground">{t('admin.noPendingVerifications')}</p>
             </CardContent>
           </Card>
         ) : (
@@ -109,35 +109,35 @@ const VerificationRequests = () => {
                       <CardTitle className="text-2xl">{request.full_name}</CardTitle>
                       <p className="text-sm text-muted-foreground mt-1">{request.email}</p>
                     </div>
-                    <Badge variant="default">Pending</Badge>
+                    <Badge variant="default">{t('profile.pending')}</Badge>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <p className="text-sm font-medium">Phone</p>
+                      <p className="text-sm font-medium">{t('common.phone')}</p>
                       <p className="text-muted-foreground">{request.phone}</p>
                     </div>
                     <div>
-                      <p className="text-sm font-medium">Location</p>
+                      <p className="text-sm font-medium">{t('common.location')}</p>
                       <p className="text-muted-foreground">{request.location || '-'}</p>
                     </div>
                     <div>
-                      <p className="text-sm font-medium">Occupation</p>
+                      <p className="text-sm font-medium">{t('common.occupation')}</p>
                       <p className="text-muted-foreground">{request.occupation || '-'}</p>
                     </div>
                   </div>
 
                   {request.headshot_url && (
                     <div>
-                      <p className="text-sm font-medium mb-2">Headshot</p>
+                      <p className="text-sm font-medium mb-2">{t('common.headshot')}</p>
                       <img src={request.headshot_url} alt="Headshot" className="w-32 h-32 object-cover rounded-lg" />
                     </div>
                   )}
 
                   {request.passport_url && (
                     <div>
-                      <p className="text-sm font-medium mb-2">Passport/ID Document</p>
+                      <p className="text-sm font-medium mb-2">{t('common.passport')}</p>
                       <a 
                         href={request.passport_url} 
                         target="_blank" 
@@ -151,11 +151,11 @@ const VerificationRequests = () => {
                   )}
 
                   <div>
-                    <p className="text-sm font-medium mb-2">Notes (Optional)</p>
+                    <p className="text-sm font-medium mb-2">{t('admin.notes')}</p>
                     <Textarea
                       value={notes[request.id] || ''}
                       onChange={(e) => setNotes({ ...notes, [request.id]: e.target.value })}
-                      placeholder="Add any notes about this verification..."
+                      placeholder={t('admin.notesPlaceholder')}
                       rows={3}
                     />
                   </div>

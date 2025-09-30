@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -7,6 +8,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
 export const EmailSubscribe = () => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -14,7 +16,7 @@ export const EmailSubscribe = () => {
     e.preventDefault();
     
     if (!email || !email.includes("@")) {
-      toast.error("Please enter a valid email");
+      toast.error(t('subscribe.invalid'));
       return;
     }
 
@@ -28,12 +30,12 @@ export const EmailSubscribe = () => {
 
     if (error) {
       if (error.code === '23505') {
-        toast.error("This email is already subscribed");
+        toast.error(t('subscribe.exists'));
       } else {
-        toast.error("Failed to subscribe");
+        toast.error(t('subscribe.error'));
       }
     } else {
-      toast.success("Successfully subscribed to updates!");
+      toast.success(t('subscribe.success'));
       setEmail("");
     }
   };
@@ -46,22 +48,22 @@ export const EmailSubscribe = () => {
             <Mail className="h-6 w-6 text-primary" />
           </div>
         </div>
-        <CardTitle>Stay Informed</CardTitle>
+        <CardTitle>{t('subscribe.title')}</CardTitle>
         <CardDescription>
-          Subscribe to receive updates about polls, announcements, and democratic initiatives
+          {t('subscribe.description')}
         </CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubscribe} className="flex gap-2">
           <Input
             type="email"
-            placeholder="your@email.com"
+            placeholder={t('subscribe.placeholder')}
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
           <Button type="submit" disabled={loading} className="gradient-hero">
-            Subscribe
+            {t('subscribe.button')}
           </Button>
         </form>
       </CardContent>

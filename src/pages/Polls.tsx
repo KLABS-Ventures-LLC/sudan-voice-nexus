@@ -78,8 +78,8 @@ const Polls = () => {
             <SelectTrigger className="w-full md:w-[200px]">
               <SelectValue />
             </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">All Categories</SelectItem>
+              <SelectContent>
+              <SelectItem value="all">{t('poll.categories.all')}</SelectItem>
               <SelectItem value="governance">{t('poll.categories.governance')}</SelectItem>
               <SelectItem value="economy">{t('poll.categories.economy')}</SelectItem>
               <SelectItem value="education">{t('poll.categories.education')}</SelectItem>
@@ -94,7 +94,7 @@ const Polls = () => {
         {polls.length === 0 ? (
           <div className="text-center py-12">
             <p className="text-muted-foreground text-lg">
-              No polls available yet. Be the first to create one!
+              {t('polls.noPollsYet')}
             </p>
           </div>
         ) : (

@@ -60,9 +60,9 @@ const PollApprovals = () => {
       .eq('id', pollId);
 
     if (error) {
-      toast.error("Failed to approve poll");
+      toast.error(t('admin.pollApproveFailed'));
     } else {
-      toast.success("Poll approved successfully!");
+      toast.success(t('admin.pollApproveSuccess'));
       fetchPolls();
     }
   };
@@ -76,9 +76,9 @@ const PollApprovals = () => {
       .eq('id', pollId);
 
     if (error) {
-      toast.error("Failed to reject poll");
+      toast.error(t('admin.pollRejectFailed'));
     } else {
-      toast.success("Poll rejected");
+      toast.success(t('admin.pollRejectSuccess'));
       fetchPolls();
     }
   };
@@ -93,7 +93,7 @@ const PollApprovals = () => {
         {polls.length === 0 ? (
           <Card>
             <CardContent className="py-12 text-center">
-              <p className="text-muted-foreground">No pending poll approvals</p>
+              <p className="text-muted-foreground">{t('admin.noPendingPolls')}</p>
             </CardContent>
           </Card>
         ) : (
@@ -105,7 +105,7 @@ const PollApprovals = () => {
                     <div className="flex-1">
                       <CardTitle className="text-2xl">{poll.title}</CardTitle>
                       <p className="text-sm text-muted-foreground mt-1">
-                        Created by: {poll.profiles?.full_name}
+                        {t('admin.createdBy')}: {poll.profiles?.full_name}
                       </p>
                     </div>
                     <Badge variant="default">{t(`poll.categories.${poll.category}`)}</Badge>
@@ -114,7 +114,7 @@ const PollApprovals = () => {
                 <CardContent className="space-y-4">
                   {poll.description && (
                     <div>
-                      <p className="text-sm font-medium">Description</p>
+                      <p className="text-sm font-medium">{t('poll.description')}</p>
                       <p className="text-muted-foreground">{poll.description}</p>
                     </div>
                   )}

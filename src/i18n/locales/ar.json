@@ -15,10 +15,35 @@
     "viewPolls": "عرض جميع الاستطلاعات"
   },
   "stats": {
-    "supporters": "المؤيدون",
+    "supporters": "إجمالي المؤيدين",
     "verifiedSupporters": "المؤيدون الموثقون",
     "activePolls": "استطلاعات نشطة",
     "totalVotes": "إجمالي الأصوات"
+  },
+  "polls": {
+    "recent": "استطلاعات حديثة",
+    "recentDescription": "شارك في المناقشات الجارية",
+    "viewAll": "عرض الكل",
+    "noPollsYet": "لا توجد استطلاعات متاحة بعد. كن أول من ينشئ واحداً!",
+    "totalVotes": "إجمالي الأصوات"
+  },
+  "gofundme": {
+    "title": "ادعم حركتنا",
+    "description": "ساعدنا في بناء مستقبل ديمقراطي أقوى للسودان. كل مساهمة مهمة.",
+    "goal": "الهدف",
+    "funded": "تم التمويل",
+    "supporters": "مؤيد",
+    "contribute": "ساهم الآن"
+  },
+  "subscribe": {
+    "title": "ابق على اطلاع",
+    "description": "اشترك لتلقي التحديثات حول الاستطلاعات والإعلانات والمبادرات الديمقراطية",
+    "placeholder": "بريدك@الإلكتروني.com",
+    "button": "اشترك",
+    "success": "تم الاشتراك في التحديثات بنجاح!",
+    "invalid": "يرجى إدخال بريد إلكتروني صالح",
+    "exists": "هذا البريد الإلكتروني مشترك بالفعل",
+    "error": "فشل الاشتراك"
   },
   "auth": {
     "title": "انضم إلى شبكة صوت السودان",
@@ -37,7 +62,12 @@
     "signingIn": "جاري تسجيل الدخول...",
     "codeSent": "تم إرسال رمز التحقق إلى هاتفك",
     "verificationSuccess": "تم التحقق من الهاتف بنجاح!",
-    "enterCode": "أدخل الرمز المكون من 6 أرقام المرسل إلى هاتفك"
+    "enterCode": "أدخل الرمز المكون من 6 أرقام المرسل إلى هاتفك",
+    "loginToVote": "يرجى تسجيل الدخول للتصويت",
+    "voteUpdated": "تم تحديث التصويت!",
+    "voteRecorded": "تم تسجيل التصويت!",
+    "voteFailed": "فشل التصويت",
+    "loginToCreate": "يرجى تسجيل الدخول لإنشاء استطلاع"
   },
   "register": {
     "title": "أكمل ملفك الشخصي",
@@ -54,15 +84,25 @@
   },
   "poll": {
     "createNew": "إنشاء استطلاع",
+    "createTitle": "إنشاء استطلاع جديد",
     "title": "عنوان الاستطلاع",
     "description": "الوصف",
+    "descriptionPlaceholder": "وصف اختياري...",
+    "question": "ما هو سؤالك؟",
     "category": "الفئة",
     "options": "الخيارات",
+    "option": "خيار",
     "addOption": "إضافة خيار",
     "vote": "صوّت",
     "voted": "تم التصويت",
     "votes": "صوت",
     "pending": "في انتظار الموافقة",
+    "cancel": "إلغاء",
+    "enterTitle": "يرجى إدخال عنوان الاستطلاع",
+    "min2Options": "يرجى توفير خيارين على الأقل",
+    "created": "تم إنشاء الاستطلاع! في انتظار موافقة المشرف.",
+    "createdFailed": "فشل إنشاء الاستطلاع",
+    "optionsFailed": "فشل إنشاء خيارات الاستطلاع",
     "categories": {
       "governance": "الحوكمة",
       "economy": "الاقتصاد",
@@ -70,7 +110,8 @@
       "health": "الصحة",
       "infrastructure": "البنية التحتية",
       "security": "الأمن",
-      "other": "أخرى"
+      "other": "أخرى",
+      "all": "جميع الفئات"
     }
   },
   "profile": {
@@ -81,7 +122,11 @@
     "verified": "موثق",
     "rejected": "مرفوض",
     "upgrade": "الترقية إلى مؤيد موثق",
-    "uploadPassport": "تحميل جواز السفر/الهوية"
+    "uploadPassport": "تحميل جواز السفر/الهوية",
+    "upgradeDescription": "قم بتحميل جواز سفرك أو هويتك لتصبح مؤيداً موثقاً",
+    "submitting": "جاري الإرسال...",
+    "submitVerification": "تقديم للتوثيق",
+    "verificationNotes": "ملاحظات التوثيق"
   },
   "admin": {
     "dashboard": "لوحة الإدارة",
@@ -90,10 +135,54 @@
     "analytics": "التحليلات",
     "approve": "موافقة",
     "reject": "رفض",
-    "viewDocument": "عرض الوثيقة"
+    "viewDocument": "عرض الوثيقة",
+    "totalUsers": "إجمالي المستخدمين",
+    "verifiedUsers": "المستخدمون الموثقون",
+    "pendingVerifications": "التوثيقات المعلقة",
+    "pendingPolls": "الاستطلاعات المعلقة",
+    "reviewVerifications": "مراجعة والموافقة على طلبات توثيق المستخدمين",
+    "reviewPolls": "مراجعة والموافقة على الاستطلاعات الجديدة قبل نشرها",
+    "viewAnalytics": "عرض التحليلات التفصيلية ورؤى المستخدمين",
+    "viewRequests": "عرض الطلبات",
+    "viewPolls": "عرض الاستطلاعات",
+    "noPendingVerifications": "لا توجد طلبات توثيق معلقة",
+    "noPendingPolls": "لا توجد موافقات استطلاعات معلقة",
+    "approveSuccess": "تم توثيق المستخدم بنجاح!",
+    "approveFailed": "فشلت الموافقة على التوثيق",
+    "rejectSuccess": "تم رفض التوثيق",
+    "rejectFailed": "فشل رفض التوثيق",
+    "pollApproveSuccess": "تمت الموافقة على الاستطلاع بنجاح!",
+    "pollApproveFailed": "فشلت الموافقة على الاستطلاع",
+    "pollRejectSuccess": "تم رفض الاستطلاع",
+    "pollRejectFailed": "فشل رفض الاستطلاع",
+    "notes": "ملاحظات (اختياري)",
+    "notesPlaceholder": "أضف أي ملاحظات حول هذا التوثيق...",
+    "createdBy": "أنشئ بواسطة",
+    "locationAnalytics": "المستخدمون حسب الموقع",
+    "occupationAnalytics": "المستخدمون حسب المهنة",
+    "noLocationData": "لا توجد بيانات موقع متاحة",
+    "noOccupationData": "لا توجد بيانات مهنة متاحة",
+    "globePlaceholder": "سيتم تنفيذ عرض الكرة الأرضية التفاعلي هنا",
+    "globeNote": "(يتطلب مكتبة إضافية مثل react-globe.gl)"
   },
   "footer": {
-    "description": "تمكين الأصوات السودانية من خلال المشاركة الرقمية الديمقراطية",
+    "description": "منصة برلمان رقمي تضمن المشاركة الموثقة في العمليات الديمقراطية.",
+    "navigation": "التنقل",
+    "resources": "الموارد",
+    "aboutUs": "من نحن",
+    "howItWorks": "كيف يعمل",
+    "contact": "اتصل بنا",
+    "legal": "قانوني",
+    "privacy": "سياسة الخصوصية",
+    "terms": "شروط الخدمة",
     "rights": "جميع الحقوق محفوظة"
+  },
+  "common": {
+    "loading": "جاري التحميل...",
+    "phone": "الهاتف",
+    "location": "الموقع",
+    "occupation": "المهنة",
+    "headshot": "صورة شخصية",
+    "passport": "وثيقة جواز السفر/الهوية"
   }
 }

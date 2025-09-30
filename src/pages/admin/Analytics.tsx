@@ -73,11 +73,11 @@ const Analytics = () => {
         <div className="grid lg:grid-cols-2 gap-6">
           <Card>
             <CardHeader>
-              <CardTitle className="text-2xl">Users by Location</CardTitle>
+              <CardTitle className="text-2xl">{t('admin.locationAnalytics')}</CardTitle>
             </CardHeader>
             <CardContent>
               {analytics.byLocation.length === 0 ? (
-                <p className="text-muted-foreground">No location data available</p>
+                <p className="text-muted-foreground">{t('admin.noLocationData')}</p>
               ) : (
                 <div className="space-y-4">
                   {analytics.byLocation
@@ -104,11 +104,11 @@ const Analytics = () => {
 
           <Card>
             <CardHeader>
-              <CardTitle className="text-2xl">Users by Occupation</CardTitle>
+              <CardTitle className="text-2xl">{t('admin.occupationAnalytics')}</CardTitle>
             </CardHeader>
             <CardContent>
               {analytics.byOccupation.length === 0 ? (
-                <p className="text-muted-foreground">No occupation data available</p>
+                <p className="text-muted-foreground">{t('admin.noOccupationData')}</p>
               ) : (
                 <div className="space-y-4">
                   {analytics.byOccupation
@@ -136,14 +136,14 @@ const Analytics = () => {
 
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle className="text-2xl">Interactive Globe</CardTitle>
+            <CardTitle className="text-2xl">{t('admin.analytics')}</CardTitle>
           </CardHeader>
           <CardContent className="py-12 text-center">
             <p className="text-muted-foreground">
-              Interactive globe visualization will be implemented here
+              {t('admin.globePlaceholder')}
             </p>
             <p className="text-sm text-muted-foreground mt-2">
-              (Requires additional library like react-globe.gl)
+              {t('admin.globeNote')}
             </p>
           </CardContent>
         </Card>
