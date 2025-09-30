@@ -1,0 +1,99 @@
+{
+  "nav": {
+    "home": "Home",
+    "polls": "Polls",
+    "profile": "Profile",
+    "admin": "Admin",
+    "signIn": "Sign In",
+    "signOut": "Sign Out"
+  },
+  "hero": {
+    "title": "Sudan Voice Nexus",
+    "subtitle": "A Digital Parliament for the People of Sudan",
+    "description": "Participate in democratic decision-making through authenticated and verified polling. Your voice matters in shaping Sudan's future.",
+    "joinNow": "Join Now",
+    "viewPolls": "View All Polls"
+  },
+  "stats": {
+    "supporters": "Supporters",
+    "verifiedSupporters": "Verified Supporters",
+    "activePolls": "Active Polls",
+    "totalVotes": "Total Votes"
+  },
+  "auth": {
+    "title": "Join Sudan Voice Nexus",
+    "description": "Create an account or sign in to participate in democratic polling",
+    "signUp": "Sign Up",
+    "signIn": "Sign In",
+    "fullName": "Full Name",
+    "phone": "Phone Number",
+    "email": "Email",
+    "password": "Password",
+    "verificationCode": "Verification Code",
+    "sendCode": "Send Code",
+    "verify": "Verify",
+    "resendCode": "Resend Code",
+    "creating": "Creating Account...",
+    "signingIn": "Signing In...",
+    "codeSent": "Verification code sent to your phone",
+    "verificationSuccess": "Phone verified successfully!",
+    "enterCode": "Enter the 6-digit code sent to your phone"
+  },
+  "register": {
+    "title": "Complete Your Profile",
+    "fullName": "Full Name",
+    "phone": "Phone",
+    "email": "Email",
+    "location": "Location",
+    "occupation": "Occupation",
+    "headshot": "Headshot Picture",
+    "passport": "Passport/ID (Optional - for verification)",
+    "saving": "Saving...",
+    "complete": "Complete Registration",
+    "success": "Profile updated successfully!"
+  },
+  "poll": {
+    "createNew": "Create Poll",
+    "title": "Poll Title",
+    "description": "Description",
+    "category": "Category",
+    "options": "Options",
+    "addOption": "Add Option",
+    "vote": "Vote",
+    "voted": "Voted",
+    "votes": "votes",
+    "pending": "Pending Approval",
+    "categories": {
+      "governance": "Governance",
+      "economy": "Economy",
+      "education": "Education",
+      "health": "Health",
+      "infrastructure": "Infrastructure",
+      "security": "Security",
+      "other": "Other"
+    }
+  },
+  "profile": {
+    "title": "My Profile",
+    "status": "Verification Status",
+    "unverified": "Unverified",
+    "pending": "Pending",
+    "verified": "Verified",
+    "rejected": "Rejected",
+    "upgrade": "Upgrade to Verified Supporter",
+    "uploadPassport": "Upload Passport/ID"
+  },
+  "admin": {
+    "dashboard": "Admin Dashboard",
+    "verificationRequests": "Verification Requests",
+    "pollApprovals": "Poll Approvals",
+    "analytics": "Analytics",
+    "approve": "Approve",
+    "reject": "Reject",
+    "viewDocument": "View Document"
+  },
+  "footer": {
+    "description": "Empowering Sudanese voices through democratic digital participation",
+    "rights": "All rights reserved"
+  }
+}

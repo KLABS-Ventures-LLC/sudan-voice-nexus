@@ -1,11 +1,14 @@
 import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Vote, LogOut, User, LayoutDashboard } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
+import { LanguageSwitch } from "./LanguageSwitch";
 
 export const Header = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [user, setUser] = useState<any>(null);
   const [isAdmin, setIsAdmin] = useState(false);
@@ -57,8 +60,9 @@ export const Header = () => {
         </Link>
 
         <nav className="flex items-center gap-2">
+          <LanguageSwitch />
           <Button variant="ghost" asChild>
-            <Link to="/polls">All Polls</Link>
+            <Link to="/polls">{t('nav.polls')}</Link>
           </Button>
           
           {user ? (
@@ -66,7 +70,7 @@ export const Header = () => {
               <Button variant="ghost" asChild>
                 <Link to="/profile">
                   <User className="h-4 w-4 mr-2" />
-                  Profile
+                  {t('nav.profile')}
                 </Link>
               </Button>
               
@@ -74,19 +78,19 @@ export const Header = () => {
                 <Button variant="ghost" asChild>
                   <Link to="/admin">
                     <LayoutDashboard className="h-4 w-4 mr-2" />
-                    Admin
+                    {t('nav.admin')}
                   </Link>
                 </Button>
               )}
               
               <Button variant="ghost" onClick={handleLogout}>
                 <LogOut className="h-4 w-4 mr-2" />
-                Logout
+                {t('nav.signOut')}
               </Button>
             </>
           ) : (
             <Button asChild className="gradient-hero">
-              <Link to="/auth">Join Parliament</Link>
+              <Link to="/auth">{t('nav.signIn')}</Link>
             </Button>
           )}
         </nav>

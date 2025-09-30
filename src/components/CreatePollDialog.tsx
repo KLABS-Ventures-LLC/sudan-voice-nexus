@@ -84,15 +84,12 @@ export const CreatePollDialog = () => {
       return;
     }
 
-    toast.success("Poll created successfully!");
+    toast.success("Poll created! Pending admin approval.");
     setOpen(false);
     setTitle("");
     setDescription("");
     setCategory("other");
     setOptions(["", ""]);
-    
-    // Refresh the page to show new poll
-    window.location.reload();
   };
 
   return (

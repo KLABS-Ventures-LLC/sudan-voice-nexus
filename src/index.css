@@ -8,9 +8,56 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Bold Sudanese Parliament Design System */
-    /* Inspired by Sudan's flag: red (sacrifice), white (peace), black (Sudan), green (prosperity) */
+    /* Bold Sudanese Parliament Design System - Dark Mode by Default */
+    --background: 222 30% 7%;
+    --foreground: 0 0% 98%;
+
+    --card: 222 28% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 222 28% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Bold primary - Vibrant blue */
+    --primary: 220 85% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 220 85% 50%;
     
+    /* Bold secondary - Vibrant red */
+    --secondary: 0 90% 60%;
+    --secondary-foreground: 0 0% 100%;
+    
+    /* Accent - Bright gold */
+    --accent: 45 100% 60%;
+    --accent-foreground: 222 30% 10%;
+    
+    /* Success - Vibrant green */
+    --success: 145 70% 50%;
+    --success-foreground: 0 0% 100%;
+
+    --muted: 222 28% 15%;
+    --muted-foreground: 220 10% 60%;
+
+    --destructive: 0 90% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 222 28% 18%;
+    --input: 222 28% 18%;
+    --ring: 220 85% 55%;
+
+    --radius: 0.75rem;
+    
+    /* Bold gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(220 85% 40%), hsl(0 90% 60%));
+    --gradient-accent: linear-gradient(135deg, hsl(220 85% 40%), hsl(145 70% 50%));
+    --gradient-subtle: linear-gradient(180deg, hsl(222 30% 7%), hsl(222 28% 12%));
+    
+    /* Strong shadows for depth */
+    --shadow-lg: 0 20px 40px -10px hsl(0 0% 0% / 0.6);
+    --shadow-xl: 0 30px 60px -15px hsl(0 0% 0% / 0.7);
+  }
+
+  .light {
     --background: 0 0% 100%;
     --foreground: 222 20% 10%;
 
@@ -20,20 +67,16 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222 20% 10%;
 
-    /* Bold primary - Deep parliament blue with red accent */
     --primary: 220 70% 25%;
     --primary-foreground: 0 0% 100%;
     --primary-hover: 220 70% 20%;
     
-    /* Bold secondary - Sudanese red */
     --secondary: 0 85% 45%;
     --secondary-foreground: 0 0% 100%;
     
-    /* Accent - Parliament gold */
     --accent: 45 100% 50%;
     --accent-foreground: 222 20% 10%;
     
-    /* Success - Sudan green */
     --success: 145 65% 35%;
     --success-foreground: 0 0% 100%;
 
@@ -46,58 +89,13 @@ All colors MUST be HSL.
     --border: 220 15% 90%;
     --input: 220 15% 90%;
     --ring: 220 70% 25%;
-
-    --radius: 0.75rem;
     
-    /* Gradients for bold impact */
     --gradient-hero: linear-gradient(135deg, hsl(220 70% 25%), hsl(0 85% 45%));
     --gradient-accent: linear-gradient(135deg, hsl(220 70% 25%), hsl(145 65% 35%));
     --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(220 15% 98%));
     
-    /* Shadows */
     --shadow-lg: 0 20px 40px -10px hsl(220 70% 25% / 0.2);
     --shadow-xl: 0 30px 60px -15px hsl(220 70% 25% / 0.3);
-  }
-
-  .dark {
-    --background: 222 25% 8%;
-    --foreground: 0 0% 98%;
-
-    --card: 222 25% 10%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 222 25% 10%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 220 70% 55%;
-    --primary-foreground: 0 0% 100%;
-    --primary-hover: 220 70% 50%;
-
-    --secondary: 0 85% 55%;
-    --secondary-foreground: 0 0% 100%;
-
-    --accent: 45 100% 60%;
-    --accent-foreground: 222 25% 10%;
-    
-    --success: 145 65% 45%;
-    --success-foreground: 0 0% 100%;
-
-    --muted: 222 25% 15%;
-    --muted-foreground: 220 10% 60%;
-
-    --destructive: 0 85% 55%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 222 25% 15%;
-    --input: 222 25% 15%;
-    --ring: 220 70% 55%;
-    
-    --gradient-hero: linear-gradient(135deg, hsl(220 70% 35%), hsl(0 85% 55%));
-    --gradient-accent: linear-gradient(135deg, hsl(220 70% 35%), hsl(145 65% 45%));
-    --gradient-subtle: linear-gradient(180deg, hsl(222 25% 8%), hsl(222 25% 12%));
-    
-    --shadow-lg: 0 20px 40px -10px hsl(0 0% 0% / 0.5);
-    --shadow-xl: 0 30px 60px -15px hsl(0 0% 0% / 0.6);
   }
 }
 
@@ -112,7 +110,19 @@ All colors MUST be HSL.
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight;
+    @apply font-extrabold tracking-tight;
+  }
+  
+  h1 {
+    @apply text-5xl md:text-7xl;
+  }
+  
+  h2 {
+    @apply text-4xl md:text-5xl;
+  }
+  
+  h3 {
+    @apply text-3xl md:text-4xl;
   }
   
   .gradient-hero {
@@ -131,5 +141,13 @@ All colors MUST be HSL.
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  
+  [dir="rtl"] {
+    direction: rtl;
+  }
+  
+  [dir="ltr"] {
+    direction: ltr;
   }
 }
