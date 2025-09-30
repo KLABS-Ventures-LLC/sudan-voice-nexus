@@ -66,6 +66,8 @@ export type Database = {
       }
       polls: {
         Row: {
+          approved: boolean
+          approved_by: string | null
           category: Database["public"]["Enums"]["poll_category"]
           created_at: string
           description: string | null
@@ -76,6 +78,8 @@ export type Database = {
           user_id: string
         }
         Insert: {
+          approved?: boolean
+          approved_by?: string | null
           category?: Database["public"]["Enums"]["poll_category"]
           created_at?: string
           description?: string | null
@@ -86,6 +90,8 @@ export type Database = {
           user_id: string
         }
         Update: {
+          approved?: boolean
+          approved_by?: string | null
           category?: Database["public"]["Enums"]["poll_category"]
           created_at?: string
           description?: string | null
@@ -96,6 +102,13 @@ export type Database = {
           user_id?: string
         }
         Relationships: [
+          {
+            foreignKeyName: "polls_approved_by_fkey"
+            columns: ["approved_by"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
           {
             foreignKeyName: "polls_user_id_fkey"
             columns: ["user_id"]
