@@ -13,7 +13,6 @@ import VerificationRequests from "./pages/admin/VerificationRequests";
 import PollApprovals from "./pages/admin/PollApprovals";
 import Analytics from "./pages/admin/Analytics";
 import NotFound from "./pages/NotFound";
-import "./i18n/config";
 
 const queryClient = new QueryClient();
 
