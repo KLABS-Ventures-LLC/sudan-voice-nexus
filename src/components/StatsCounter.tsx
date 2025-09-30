@@ -48,16 +48,16 @@ export const StatsCounter = () => {
   };
 
   return (
-    <div className="grid md:grid-cols-2 gap-6 my-12">
-      <Card className="border-2 border-primary/20 hover:border-primary/40 transition-all">
-        <CardContent className="pt-6">
-          <div className="flex items-center gap-4">
-            <div className="p-4 rounded-full bg-primary/10">
-              <Users className="h-8 w-8 text-primary" />
+    <div className="grid md:grid-cols-2 gap-8 my-12">
+      <Card className="border-2 border-primary/30 hover:border-primary/60 transition-all shadow-golden hover:shadow-golden bg-gradient-to-br from-primary/5 to-primary/10 min-h-[280px]">
+        <CardContent className="pt-10 pb-10">
+          <div className="flex flex-col items-center text-center gap-6">
+            <div className="p-6 rounded-full gradient-golden shadow-golden">
+              <Users className="h-12 w-12 text-background" />
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">{t('stats.supporters')}</p>
-              <p className="text-4xl font-bold text-primary animate-fade-in">
+              <p className="text-lg font-medium text-muted-foreground mb-2">{t('stats.supporters')}</p>
+              <p className="text-6xl font-bold text-primary animate-fade-in">
                 {totalSupporters.toLocaleString()}
               </p>
             </div>
@@ -65,15 +65,15 @@ export const StatsCounter = () => {
         </CardContent>
       </Card>
 
-      <Card className="border-2 border-success/20 hover:border-success/40 transition-all">
-        <CardContent className="pt-6">
-          <div className="flex items-center gap-4">
-            <div className="p-4 rounded-full bg-success/10">
-              <ShieldCheck className="h-8 w-8 text-success" />
+      <Card className="border-2 border-success/30 hover:border-success/60 transition-all shadow-golden hover:shadow-golden bg-gradient-to-br from-success/5 to-success/10 min-h-[280px]">
+        <CardContent className="pt-10 pb-10">
+          <div className="flex flex-col items-center text-center gap-6">
+            <div className="p-6 rounded-full gradient-golden shadow-golden">
+              <ShieldCheck className="h-12 w-12 text-background" />
             </div>
             <div>
-              <p className="text-sm text-muted-foreground">{t('stats.verifiedSupporters')}</p>
-              <p className="text-4xl font-bold text-success animate-fade-in">
+              <p className="text-lg font-medium text-muted-foreground mb-2">{t('stats.verifiedSupporters')}</p>
+              <p className="text-6xl font-bold text-success animate-fade-in">
                 {verifiedSupporters.toLocaleString()}
               </p>
             </div>
