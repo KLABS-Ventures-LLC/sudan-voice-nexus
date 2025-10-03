@@ -91,11 +91,11 @@ const AdminDashboard = () => {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-muted-foreground mb-4 text-sm">
                 {t('admin.manageUserRoles')}
               </p>
               <Button asChild className="w-full gradient-accent">
-                <Link to="/admin/users">{t('admin.manageUsers')}</Link>
+                <Link to="/admin/users" className="truncate">{t('admin.manageUsers')}</Link>
               </Button>
             </CardContent>
           </Card>
@@ -108,11 +108,11 @@ const AdminDashboard = () => {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-muted-foreground mb-4 text-sm">
                 {t('admin.reviewVerifications')}
               </p>
               <Button asChild className="w-full gradient-accent">
-                <Link to="/admin/verifications">{t('admin.viewRequests')}</Link>
+                <Link to="/admin/verifications" className="truncate">{t('admin.viewRequests')}</Link>
               </Button>
             </CardContent>
           </Card>
@@ -125,11 +125,11 @@ const AdminDashboard = () => {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-muted-foreground mb-4 text-sm">
                 {t('admin.reviewPolls')}
               </p>
               <Button asChild className="w-full gradient-accent">
-                <Link to="/admin/polls">{t('admin.viewPolls')}</Link>
+                <Link to="/admin/polls" className="truncate">{t('admin.viewPolls')}</Link>
               </Button>
             </CardContent>
           </Card>
@@ -142,11 +142,11 @@ const AdminDashboard = () => {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-muted-foreground mb-4 text-sm">
                 {t('admin.viewAnalytics')}
               </p>
               <Button asChild className="w-full gradient-accent">
-                <Link to="/admin/analytics">{t('admin.viewAnalytics')}</Link>
+                <Link to="/admin/analytics" className="truncate">View</Link>
               </Button>
             </CardContent>
           </Card>
