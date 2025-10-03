@@ -12,6 +12,7 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import VerificationRequests from "./pages/admin/VerificationRequests";
 import PollApprovals from "./pages/admin/PollApprovals";
 import Analytics from "./pages/admin/Analytics";
+import Users from "./pages/admin/Users";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ const App = () => (
           <Route path="/profile" element={<Profile />} />
           <Route path="/polls" element={<Polls />} />
           <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin/users" element={<Users />} />
           <Route path="/admin/verifications" element={<VerificationRequests />} />
           <Route path="/admin/polls" element={<PollApprovals />} />
           <Route path="/admin/analytics" element={<Analytics />} />

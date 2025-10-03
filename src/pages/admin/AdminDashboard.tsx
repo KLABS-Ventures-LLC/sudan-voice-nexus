@@ -1,17 +1,14 @@
 import { useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { AdminLayout } from "@/components/admin/AdminLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
-import { Users, CheckCircle, FileText, BarChart3 } from "lucide-react";
+import { Users, CheckCircle, FileText, BarChart3, UserCog } from "lucide-react";
 
 const AdminDashboard = () => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
-  const [isAdmin, setIsAdmin] = useState(false);
   const [stats, setStats] = useState({
     pendingVerifications: 0,
     pendingPolls: 0,
@@ -20,26 +17,8 @@ const AdminDashboard = () => {
   });
 
   useEffect(() => {
-    checkAdmin();
-  }, []);
-
-  const checkAdmin = async () => {
-    const { data: { session } } = await supabase.auth.getSession();
-    if (!session) {
-      navigate("/auth");
-      return;
-    }
-
-    // Temporarily disabled admin check for testing
-    // const { data } = await supabase.rpc('is_admin', { _user_id: session.user.id });
-    // if (!data) {
-    //   navigate("/");
-    //   return;
-    // }
-
-    setIsAdmin(true);
     fetchStats();
-  };
+  }, []);
 
   const fetchStats = async () => {
     const [verifications, polls, users, verified] = await Promise.all([
@@ -57,20 +36,9 @@ const AdminDashboard = () => {
     });
   };
 
-  if (!isAdmin) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p>Loading...</p>
-      </div>
-    );
-  }
-
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-
-      <div className="flex-1 container py-12">
-        <h1 className="text-5xl font-extrabold mb-8">{t('admin.dashboard')}</h1>
+    <AdminLayout>
+      <h1 className="text-5xl font-extrabold mb-8">{t('admin.dashboard')}</h1>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <Card>
@@ -114,7 +82,24 @@ const AdminDashboard = () => {
           </Card>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <Card className="hover:shadow-xl transition-shadow">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <UserCog className="h-5 w-5" />
+                {t('admin.userManagement')}
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground mb-4">
+                {t('admin.manageUserRoles')}
+              </p>
+              <Button asChild className="w-full gradient-accent">
+                <Link to="/admin/users">{t('admin.manageUsers')}</Link>
+              </Button>
+            </CardContent>
+          </Card>
+
           <Card className="hover:shadow-xl transition-shadow">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
@@ -166,10 +151,7 @@ const AdminDashboard = () => {
             </CardContent>
           </Card>
         </div>
-      </div>
-
-      <Footer />
-    </div>
+    </AdminLayout>
   );
 };
 

@@ -130,6 +130,7 @@
   },
   "admin": {
     "dashboard": "Admin Dashboard",
+    "userManagement": "User Management",
     "verificationRequests": "Verification Requests",
     "pollApprovals": "Poll Approvals",
     "analytics": "Analytics",
@@ -163,7 +164,15 @@
     "noLocationData": "No location data available",
     "noOccupationData": "No occupation data available",
     "globePlaceholder": "Interactive globe visualization will be implemented here",
-    "globeNote": "(Requires additional library like react-globe.gl)"
+    "globeNote": "(Requires additional library like react-globe.gl)",
+    "allUsers": "All Users",
+    "searchUsers": "Search users...",
+    "role": "Role",
+    "actions": "Actions",
+    "makeAdmin": "Make Admin",
+    "removeAdmin": "Remove Admin",
+    "manageUserRoles": "Manage user roles and permissions",
+    "manageUsers": "Manage Users"
   },
   "footer": {
     "description": "A digital parliament platform ensuring authenticated participation in democratic processes.",
@@ -183,6 +192,8 @@
     "location": "Location",
     "occupation": "Occupation",
     "headshot": "Headshot",
-    "passport": "Passport/ID Document"
+    "passport": "Passport/ID Document",
+    "name": "Name",
+    "email": "Email"
   }
 }

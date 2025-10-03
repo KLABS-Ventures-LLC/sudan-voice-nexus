@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { AdminLayout } from "@/components/admin/AdminLayout";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -13,30 +11,12 @@ import { CheckCircle, XCircle, ExternalLink } from "lucide-react";
 
 const VerificationRequests = () => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
   const [requests, setRequests] = useState<any[]>([]);
   const [notes, setNotes] = useState<{ [key: string]: string }>({});
 
   useEffect(() => {
-    checkAdminAndFetch();
-  }, []);
-
-  const checkAdminAndFetch = async () => {
-    const { data: { session } } = await supabase.auth.getSession();
-    if (!session) {
-      navigate("/auth");
-      return;
-    }
-
-    // Temporarily disabled admin check for testing
-    // const { data } = await supabase.rpc('is_admin', { _user_id: session.user.id });
-    // if (!data) {
-    //   navigate("/");
-    //   return;
-    // }
-
     fetchRequests();
-  };
+  }, []);
 
   const fetchRequests = async () => {
     const { data } = await supabase
@@ -88,11 +68,8 @@ const VerificationRequests = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-
-      <div className="flex-1 container py-12">
-        <h1 className="text-5xl font-extrabold mb-8">{t('admin.verificationRequests')}</h1>
+    <AdminLayout>
+      <h1 className="text-5xl font-extrabold mb-8">{t('admin.verificationRequests')}</h1>
 
         {requests.length === 0 ? (
           <Card>
@@ -183,10 +160,7 @@ const VerificationRequests = () => {
             ))}
           </div>
         )}
-      </div>
-
-      <Footer />
-    </div>
+    </AdminLayout>
   );
 };
 
