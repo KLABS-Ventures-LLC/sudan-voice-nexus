@@ -51,45 +51,62 @@ export const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
+      <div className="container flex h-16 items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-2">
           <div className="gradient-hero p-2 rounded-lg">
-            <Vote className="h-6 w-6 text-white" />
+            <Vote className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
           </div>
-          <span className="text-xl font-bold">Sudan Voice Nexus</span>
+          <span className="text-base sm:text-xl font-bold hidden sm:inline">Sudan Voice Nexus</span>
+          <span className="text-sm font-bold sm:hidden">SVN</span>
         </Link>
 
-        <nav className="flex items-center gap-2">
+        <nav className="flex items-center gap-1 sm:gap-2">
           <LanguageSwitch />
-          <Button variant="ghost" asChild>
+          <Button variant="ghost" size="sm" asChild className="hidden md:flex">
             <Link to="/polls">{t('nav.polls')}</Link>
           </Button>
           
           {user ? (
             <>
-              <Button variant="ghost" asChild>
+              <Button variant="ghost" size="sm" asChild className="hidden sm:flex">
                 <Link to="/profile">
-                  <User className="h-4 w-4 mr-2" />
-                  {t('nav.profile')}
+                  <User className="h-4 w-4 sm:mr-2" />
+                  <span className="hidden sm:inline">{t('nav.profile')}</span>
+                </Link>
+              </Button>
+              
+              <Button variant="ghost" size="sm" asChild className="sm:hidden">
+                <Link to="/profile">
+                  <User className="h-4 w-4" />
                 </Link>
               </Button>
               
               {isAdmin && (
-                <Button variant="ghost" asChild>
-                  <Link to="/admin">
-                    <LayoutDashboard className="h-4 w-4 mr-2" />
-                    {t('nav.admin')}
-                  </Link>
-                </Button>
+                <>
+                  <Button variant="ghost" size="sm" asChild className="hidden sm:flex">
+                    <Link to="/admin">
+                      <LayoutDashboard className="h-4 w-4 sm:mr-2" />
+                      <span className="hidden sm:inline">{t('nav.admin')}</span>
+                    </Link>
+                  </Button>
+                  <Button variant="ghost" size="sm" asChild className="sm:hidden">
+                    <Link to="/admin">
+                      <LayoutDashboard className="h-4 w-4" />
+                    </Link>
+                  </Button>
+                </>
               )}
               
-              <Button variant="ghost" onClick={handleLogout}>
-                <LogOut className="h-4 w-4 mr-2" />
-                {t('nav.signOut')}
+              <Button variant="ghost" size="sm" onClick={handleLogout} className="hidden sm:flex">
+                <LogOut className="h-4 w-4 sm:mr-2" />
+                <span className="hidden sm:inline">{t('nav.signOut')}</span>
+              </Button>
+              <Button variant="ghost" size="sm" onClick={handleLogout} className="sm:hidden">
+                <LogOut className="h-4 w-4" />
               </Button>
             </>
           ) : (
-            <Button asChild className="gradient-hero">
+            <Button asChild size="sm" className="gradient-hero text-xs sm:text-sm">
               <Link to="/auth">{t('nav.signIn')}</Link>
             </Button>
           )}

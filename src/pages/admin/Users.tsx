@@ -114,13 +114,13 @@ const Users = () => {
 
   return (
     <AdminLayout>
-      <h1 className="text-5xl font-extrabold mb-8">{t('admin.userManagement')}</h1>
+      <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-6 sm:mb-8">{t('admin.userManagement')}</h1>
 
       <Card>
         <CardHeader>
-          <CardTitle className="flex items-center justify-between">
-            <span>{t('admin.allUsers')}</span>
-            <div className="relative w-64">
+          <CardTitle className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <span className="text-xl sm:text-2xl">{t('admin.allUsers')}</span>
+            <div className="relative w-full sm:w-64">
               <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
               <Input
                 placeholder={t('admin.searchUsers')}
@@ -131,16 +131,16 @@ const Users = () => {
             </div>
           </CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="overflow-x-auto">
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>{t('common.name')}</TableHead>
-                <TableHead>{t('common.email')}</TableHead>
-                <TableHead>{t('common.phone')}</TableHead>
-                <TableHead>{t('profile.status')}</TableHead>
-                <TableHead>{t('admin.role')}</TableHead>
-                <TableHead className="text-right">{t('admin.actions')}</TableHead>
+                <TableHead className="min-w-[150px]">{t('common.name')}</TableHead>
+                <TableHead className="min-w-[200px]">{t('common.email')}</TableHead>
+                <TableHead className="min-w-[120px]">{t('common.phone')}</TableHead>
+                <TableHead className="min-w-[100px]">{t('profile.status')}</TableHead>
+                <TableHead className="min-w-[100px]">{t('admin.role')}</TableHead>
+                <TableHead className="text-right min-w-[150px]">{t('admin.actions')}</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>

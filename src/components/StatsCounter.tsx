@@ -48,16 +48,16 @@ export const StatsCounter = () => {
   };
 
   return (
-    <div className="grid md:grid-cols-2 gap-8 my-12">
-      <Card className="border-2 border-primary/30 hover:border-primary/60 transition-all shadow-golden hover:shadow-golden bg-gradient-to-br from-primary/5 to-primary/10 min-h-[280px]">
-        <CardContent className="pt-10 pb-10">
-          <div className="flex flex-col items-center text-center gap-6">
-            <div className="p-6 rounded-full gradient-golden shadow-golden">
-              <Users className="h-12 w-12 text-background" />
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 my-8 sm:my-12 px-4">
+      <Card className="border-2 border-primary/30 hover:border-primary/60 transition-all shadow-golden hover:shadow-golden bg-gradient-to-br from-primary/5 to-primary/10 min-h-[220px] sm:min-h-[280px]">
+        <CardContent className="pt-6 sm:pt-10 pb-6 sm:pb-10">
+          <div className="flex flex-col items-center text-center gap-4 sm:gap-6">
+            <div className="p-4 sm:p-6 rounded-full gradient-golden shadow-golden">
+              <Users className="h-8 w-8 sm:h-12 sm:w-12 text-background" />
             </div>
             <div>
-              <p className="text-lg font-medium text-muted-foreground mb-2">{t('stats.supporters')}</p>
-              <p className="text-6xl font-bold text-primary animate-fade-in">
+              <p className="text-sm sm:text-lg font-medium text-muted-foreground mb-2">{t('stats.supporters')}</p>
+              <p className="text-4xl sm:text-6xl font-bold text-primary animate-fade-in">
                 {totalSupporters.toLocaleString()}
               </p>
             </div>
@@ -65,15 +65,15 @@ export const StatsCounter = () => {
         </CardContent>
       </Card>
 
-      <Card className="border-2 border-success/30 hover:border-success/60 transition-all shadow-golden hover:shadow-golden bg-gradient-to-br from-success/5 to-success/10 min-h-[280px]">
-        <CardContent className="pt-10 pb-10">
-          <div className="flex flex-col items-center text-center gap-6">
-            <div className="p-6 rounded-full gradient-golden shadow-golden">
-              <ShieldCheck className="h-12 w-12 text-background" />
+      <Card className="border-2 border-success/30 hover:border-success/60 transition-all shadow-golden hover:shadow-golden bg-gradient-to-br from-success/5 to-success/10 min-h-[220px] sm:min-h-[280px]">
+        <CardContent className="pt-6 sm:pt-10 pb-6 sm:pb-10">
+          <div className="flex flex-col items-center text-center gap-4 sm:gap-6">
+            <div className="p-4 sm:p-6 rounded-full gradient-golden shadow-golden">
+              <ShieldCheck className="h-8 w-8 sm:h-12 sm:w-12 text-background" />
             </div>
             <div>
-              <p className="text-lg font-medium text-muted-foreground mb-2">{t('stats.verifiedSupporters')}</p>
-              <p className="text-6xl font-bold text-success animate-fade-in">
+              <p className="text-sm sm:text-lg font-medium text-muted-foreground mb-2">{t('stats.verifiedSupporters')}</p>
+              <p className="text-4xl sm:text-6xl font-bold text-success animate-fade-in">
                 {verifiedSupporters.toLocaleString()}
               </p>
             </div>
