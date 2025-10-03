@@ -29,7 +29,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
     <div className="min-h-screen flex flex-col">
       <Header />
       
-      <SidebarProvider defaultOpen>
+      <SidebarProvider>
         <div className="flex-1 flex w-full">
           <AdminSidebar />
           

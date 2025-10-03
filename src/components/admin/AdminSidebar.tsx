@@ -34,7 +34,7 @@ export function AdminSidebar() {
             <SidebarMenu>
               {menuItems.map((item) => (
                 <SidebarMenuItem key={item.url}>
-                  <SidebarMenuButton asChild>
+                  <SidebarMenuButton asChild tooltip={t(`admin.${item.title}`)}>
                     <NavLink
                       to={item.url}
                       end={item.url === "/admin"}
@@ -43,7 +43,7 @@ export function AdminSidebar() {
                       }
                     >
                       <item.icon className="h-4 w-4" />
-                      {open && <span>{t(`admin.${item.title}`)}</span>}
+                      <span>{t(`admin.${item.title}`)}</span>
                     </NavLink>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
